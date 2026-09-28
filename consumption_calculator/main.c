@@ -5,6 +5,10 @@ int main(void)
      float distance, fuelEfficiency, fuelPrice;
      int days;
 
+     printf("============================================\n");
+     printf("           CONSUMPTION CALCULATOR           \n");
+     printf("============================================\n\n");
+
      printf("Enter total trip distance (km): ");
      scanf("%f", &distance);
      printf("Enter car fuel efficiency (km/liter): ");

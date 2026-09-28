@@ -10,6 +10,10 @@ int main(void)
 
      int month, day, year, hours, minutes;
 
+     printf("=================================\n");
+     printf("        INVOICE GENERATOR        \n");
+     printf("=================================\n\n");
+
      printf("Enter customer code: ");
      scanf("%d", &customerCode);
 
