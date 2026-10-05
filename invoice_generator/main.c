@@ -33,9 +33,9 @@ int main(void)
      printf("Customer: %.4d\n", customerCode);
      printf("Date: %.2d/%.2d/%.4d   Time: %.2d:%.2d\n\n", month, day, year, hours, minutes);
 
-     float subtotal1 = price1 * quantity1;//
-     float subtotal2 = price2 * quantity2;// Calculates the subtotal of each item.
-     float subtotal3 = price3 * quantity3;//
+     float subtotal1 = price1 * quantity1;
+     float subtotal2 = price2 * quantity2;
+     float subtotal3 = price3 * quantity3;
 
      printf("Item\tUnit Price\tQty\tSubtotal\n");
      printf("%4d\t%10.2f\t%3d\t%8.2f\n", productCode1, price1, quantity1, subtotal1);
@@ -43,15 +43,13 @@ int main(void)
      printf("%4d\t%10.2f\t%3d\t%8.2f\n\n", productCode3, price3, quantity3, subtotal3);
 
      float sumSubtotal = subtotal1 + subtotal2 + subtotal3;
-     //Sums all three subtotals.
-     float tax = sumSubtotal * 10.0 / 100.0f;
-     //Calculates the value on 10% tax based on the subtotal.
+     float tax = sumSubtotal * 10.0 / 100.0; // 10% tax over the subtotal
      float total = sumSubtotal + tax;
 
      printf("Subtotal:\t\t\t%8.2f\n", sumSubtotal);
      printf("Tax (10%%):\t\t\t%8.2f\n", tax);
      printf("----------------------------------------\n");
-     printf("TOTAL:\t\t\t\t%8.2f\n",total);
+     printf("TOTAL:\t\t\t\t%8.2f\n", total);
 
      return 0;
 }
