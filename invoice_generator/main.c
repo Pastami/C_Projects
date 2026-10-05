@@ -29,9 +29,9 @@ int main(void)
      printf("Enter purchase time (hh:mm): ");
      scanf("%d:%d", &hours, &minutes);
 
-     printf("\n=======INVOICE=======\n");
+     printf("\n---INVOICE---\n");
      printf("Customer: %.4d\n", customerCode);
-     printf("Date: %d/%d/%d   Time: %d:%d\n\n", month, day, year, hours, minutes);
+     printf("Date: %.2d/%.2d/%.4d   Time: %.2d:%.2d\n\n", month, day, year, hours, minutes);
 
      float subtotal1 = price1 * quantity1;//
      float subtotal2 = price2 * quantity2;// Calculates the subtotal of each item.
