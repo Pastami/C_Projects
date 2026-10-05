@@ -160,7 +160,6 @@ int main(void)
                break;
           }
 
-          // Print the tariffs table
           case 3:
                printf("---RESIDENTIAL TARIFFS/m³---\n\n");
                printf("BRACKET\t\tTARIFF\n");
@@ -180,12 +179,10 @@ int main(void)
 
                break;
 
-          // Quit from the program
           case 4:
                printf("Closing the program...\n");
                break;
 
-          // Error message triggered if the user enters a number that is not between 1 and 4
           default:
                printf("Invalid option. Choose an option between 1 and 4!\n");
                break;
