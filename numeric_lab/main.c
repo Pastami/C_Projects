@@ -7,7 +7,7 @@ int main(void)
      printf("       NUMERIC LAB       \n");
      printf("=========================\n\n");
 
-     int operations = 0;
+     int operations = 0; // Count the operations performed
      for ( ; ; ) {
           printf("---MENU---\n\n");
 
@@ -58,7 +58,7 @@ int main(void)
 
                          // Define whether the number is prime
                          if (divisor == candidate) {
-                              totalPrimes++; // Count the prime numbers
+                              totalPrimes++;
 
                               // Calculate the width of the candidate number
                               remaining = candidate;
@@ -85,7 +85,7 @@ int main(void)
                     }
                     printf("Total: %d primes\n\n", totalPrimes);
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
@@ -117,7 +117,7 @@ int main(void)
                     printf("\nGCD: %d\n", gcd);
                     printf("LCM: %d\n\n", lcm);
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
@@ -137,9 +137,7 @@ int main(void)
                     // Calculate and print the Fibonacci numbers
                     int n1 = 1, n2 = 1;
                     printf("F1: %d\n", n1);
-                    if (n == 2) {
-                         printf("F2: %d\n", n2);
-                    } else if (n > 2) {
+                    if (n >= 2) {
                          printf("F2: %d\n", n2);
                          for (int i = 2, sum = n1 + n2; i < n; i++, n1 = n2, n2 = sum, sum = n1 + n2) {
                               printf("F%d: %d\n", (i + 1), sum);
@@ -147,7 +145,7 @@ int main(void)
                     }
                     printf("\n");
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
@@ -164,7 +162,7 @@ int main(void)
                          scanf("%g", &epsilon);
                     }
 
-                    float term = 1.0 / 1.0;
+                    float term = 1.0;
                     float e = 1.0 + term;
                     float fac = 1.0;
                     int termsAdded = 2;
@@ -180,7 +178,7 @@ int main(void)
                     printf("Terms added: %d\n", termsAdded);
                     printf("Last term: %g\n\n", term);
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
@@ -207,12 +205,10 @@ int main(void)
                          gradesCounter++;
                          sum += grade;
 
-                         // Define the highest grade
                          if (grade > highest) {
                               highest = grade;
                          }
 
-                         // Define the lowest grade
                          if (grade < lowest) {
                               lowest = grade;
                          }
@@ -234,7 +230,7 @@ int main(void)
                          printf("Grades >= 60: %d\n\n", goodGradesCounter);
                     }
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
@@ -280,7 +276,7 @@ int main(void)
                     }
                     printf("\n");
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
@@ -319,11 +315,11 @@ int main(void)
                          printf("No triple found for perimeter %d\n\n", p);
                     }
 
-                    operations++; // Count the operations performed
+                    operations++;
                     break;
                }
 
-               case 0: goto exit_menu; // Exit the menu
+               case 0: goto exit_menu;
 
                default:
                     printf("Invalid option!\n\n");
