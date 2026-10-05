@@ -2,8 +2,8 @@
 
 int main(void)
 {
-     // WARNING: Since Chapter 4 does not introduce the if/else statements, the
-     // division by 0 is not handled here. This will be addressed in
+     // WARNING: Since Chapter 4 does not introduce if/else statements, division
+     // by zero ("/" and "%") is not handled here. This will be addressed in
      // future programs, once conditional statements are covered.
 
      printf("=================================\n");
@@ -26,9 +26,6 @@ int main(void)
      printf("Floating point division:\t%d / %d = %.2f\n", x, y, (x * 1.0 / y));
      printf("Remainder:\t\t\t%d %% %d = %d\n", x, y, (x % y));
 
-     // The BASIC CALCULATOR session performs all four basic operations, distinguishing
-     // between integer division, division with a decimal point and remainder.
-
      int a, b, c, d, e, f;
 
      printf("\n---PRECEDENCE AND ASSOCIATIVITY---\n");
@@ -39,6 +36,8 @@ int main(void)
      printf("Values: a = %d; b = %d; c = %d; d = %d; e = %d; f = %d\n", a, b, c, d, e, f);
      printf("___________________________________________\n\n");
 
+     // "%", "*" and "/" have higher precedence than "+" and "-".
+     // All of them are left-associative.
      printf("STEP\t\t\t\tCALCULATION\n\n");
 
      int remainder = a % b;
@@ -47,21 +46,16 @@ int main(void)
      int product = c * d;
      printf("Step 02:\t\t\t%d x %d = %d\n", c, d, product);
 
-     float quotient = e * 1.0f / f;
-     printf("Step 03:\t\t\t%d / %d = %.2f\n", e, f, quotient);
+     int quotient = e / f;
+     printf("Step 03:\t\t\t%d / %d = %d\n", e, f, quotient);
 
      int addition = remainder + product;
      printf("Step 04:\t\t\t%d + %d = %d\n", remainder, product, addition);
 
-     float subtraction = addition - quotient;
-     printf("Step 05:\t\t\t%d - %.2f = %.2f\n\n", addition, quotient, subtraction);
+     int subtraction = addition - quotient;
+     printf("Step 05:\t\t\t%d - %d = %d\n\n", addition, quotient, subtraction);
 
-     printf("Final result: %d %% %d + %d x %d - %d / %d = %.2f\n\n", a, b, c, d, e, f, subtraction );
-     // The PRECEDENCE AND ASSOCIATIVITY session demonstrates the precedence and
-     // associativity between the four basic operations, with remainder,
-     // multiplication, and division having the highest precedence, addition and
-     // subtraction the lowest precedence.
-     // All of them are left-associative.
+     printf("Final result: %d %% %d + %d x %d - %d / %d = %d\n\n", a, b, c, d, e, f, subtraction);
 
      int accumulator;
      printf("---COMPOUND ASSIGNMENT OPERATORS---\n");
@@ -70,6 +64,8 @@ int main(void)
      printf("Accumulator = %d\n", accumulator);
      printf("___________________________________________\n\n");
 
+     // Each assignment expression returns the new value of the accumulator,
+     // so it is printed directly inside printf.
      printf("ASSIGNMENT\t\t\tNEW VALUE\n\n");
      printf("Accumulator += 5\t\t%d\n", (accumulator += 5));
      printf("Accumulator -= 3\t\t%d\n", (accumulator -= 3));
@@ -77,17 +73,11 @@ int main(void)
      printf("Accumulator /= 4\t\t%d\n", (accumulator /= 4));
      printf("Accumulator %%= 4\t\t%d\n\n", (accumulator %= 4));
 
-     // The COMPOUND ASSIGNMENT OPERATORS session demonstrates the five
-     // compound assignment operators applied in sequence to the same
-     // variable, printing the value returned by each assignment expression
-     // directly inside printf.
-
      int i, total;
      printf("---INCREMENT AND DECREMENT---\n");
      printf("Insert an integer value to be incremented/decremented: ");
      scanf("%d", &i);
      int originalValue = i;
-     // Stores the original value.
      printf("___________________________________________\n\n");
 
      printf("POSTFIX\t\t\t RESULT\n\n");
@@ -95,23 +85,18 @@ int main(void)
      printf("Total = %d++ + 2\n", i);
 
      total = i++ + 2;
-     //Calculates the total;
      i = originalValue;
-     // Resets the value of i after the calculation of total.
 
      printf("Value used: %d", i++);
      printf("\t\tTotal = %d\n", total);
      printf("Value of i afterwards:\ti = %d\n\n", i);
 
      i = originalValue;
-     // Resets the value of i after the increment.
      printf("i = %d\n", i);
-     printf("Total = %d-- +2\n", i);
+     printf("Total = %d-- + 2\n", i);
 
      total = i-- + 2;
-     //Calculates the total;
      i = originalValue;
-     // Resets the value of i after the calculation of total.
 
      printf("Value used: %d", i--);
      printf("\t\tTotal = %d\n", total);
@@ -121,36 +106,26 @@ int main(void)
      printf("PREFIX\t\t\t RESULT\n\n");
 
      i = originalValue;
-     // Resets the value of i after the decrement.
      printf("i = %d\n", i);
      printf("Total = ++%d + 2\n", i);
 
      total = ++i + 2;
-     //Calculates the total;
      i = originalValue;
-     // Resets the value of i after the calculation of total.
 
      printf("Value used: %d", ++i);
-     printf("\t\tTotal = %d\n", (i + 2));
+     printf("\t\tTotal = %d\n", total);
      printf("Value of i afterwards:\ti = %d\n\n", i);
 
      i = originalValue;
-     // Resets the value of i after the increment.
      printf("i = %d\n", i);
      printf("Total = --%d + 2\n", i);
 
      total = --i + 2;
-     //Calculates the total;
      i = originalValue;
-     // Resets the value of i after the calculation of total.
 
      printf("Value used: %d", --i);
-     printf("\t\tTotal = %d\n", (i + 2));
+     printf("\t\tTotal = %d\n", total);
      printf("Value of i afterwards:\ti = %d\n\n", i);
-
-     // The INCREMENT AND DECREMENT session demonstrates the increment
-     // and decrement operator, either postfix and prefix, using printf
-     // to demonstrate its behavior.
 
      int value;
      printf("---CHAINED ASSIGNMENTS---\n");
@@ -158,7 +133,7 @@ int main(void)
 
      printf("Insert an integer value to be assigned: ");
      scanf("%d", &value);
-     printf("***OBS: The assignment operator is right associative***\n");
+     printf("***NOTE: The assignment operator is right associative***\n");
      printf("___________________________________________\n\n");
 
      printf("STEP\t\t\tRESULT\n\n");
@@ -170,10 +145,6 @@ int main(void)
      a = b = c = value;
      printf("Chained assignment final result: a = %d, b = %d, c = %d\n\n", a, b, c);
 
-     // The CHAINED ASSIGNMENTS session demonstrates the right-to-left
-     // associativity of the assignment operator, showing that the same
-     // value propagates through all three variables in a single statement.
-
      int j, result;
      printf("---UNDEFINED BEHAVIOR WARNING---\n");
      printf("Expression: result = j++ + j++ + j++\n\n");
@@ -182,6 +153,8 @@ int main(void)
      scanf("%d", &j);
      printf("___________________________________________\n\n");
 
+     // Intentional undefined behavior: j is modified more than once in the
+     // same expression. The result is specific to this compiler.
      result = j++ + j++ + j++;
      printf("Result obtained on this compiler: %d\n", result);
      printf("Value of j afterwards: %d\n", j);
@@ -193,12 +166,6 @@ int main(void)
      printf("between different compilers.\n");
      printf("This block exists only to warn about what to AVOID writing,\n");
      printf("not to demonstrate a reliable result.\n");
-
-     // The UNDEFINED BEHAVIOR WARNING session intentionally executes an
-     // expression that modifies the same variable more than once within
-     // the same expression, to show what NOT to write. The printed result
-     // reflects only this specific compiler's behavior and is not
-     // guaranteed by the C standard.
 
      return 0;
 }
